@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mock-interview/static/css/main.f029a054.css",
+    "main.js": "/mock-interview/static/js/main.7ce3c487.js",
+    "static/js/453.795af70d.chunk.js": "/mock-interview/static/js/453.795af70d.chunk.js",
+    "index.html": "/mock-interview/index.html",
+    "main.f029a054.css.map": "/mock-interview/static/css/main.f029a054.css.map",
+    "main.7ce3c487.js.map": "/mock-interview/static/js/main.7ce3c487.js.map",
+    "453.795af70d.chunk.js.map": "/mock-interview/static/js/453.795af70d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f029a054.css",
+    "static/js/main.7ce3c487.js"
+  ]
+}
