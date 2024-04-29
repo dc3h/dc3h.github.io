@@ -2,7 +2,6 @@
   "name": "javis-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dc3h.github.io/mock-interview",
   "dependencies": {
     "@coreui/coreui": "5.0.0",
     "@coreui/react": "5.0.0",
@@ -49,7 +48,7 @@
     "zustand": "4.5.2"
   },
   "scripts": {
-    "predeploy": "rm -rf node_modules/.cache/gh-pages && yarn run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
