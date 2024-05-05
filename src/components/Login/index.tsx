@@ -73,7 +73,7 @@ export function LoginDialog({ isOpen, setOpen }){
       const response = await getLogin(email);
       if (response.status){
         setUserId(email);
-        setSessionId(v4());
+        setSessionId(`${email}-${v4()}`);
         toast.info('Login Sucessfully', {
           position: 'top-right',
           autoClose: 5000,

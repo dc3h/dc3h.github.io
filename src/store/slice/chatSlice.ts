@@ -1,9 +1,9 @@
 import { StateCreator } from 'zustand';
 
 interface Message {
-    role: string;
-    content: string;
-  }
+  role: string;
+  content: string;
+}
 
 export interface ChatSlice {
   conversation: Message[];

@@ -1,15 +1,17 @@
 import styled from 'styled-components';
-import { useState } from 'react';
-// import { useBoundStore } from 'store/store';
-// import plane from 'assets/canvas/plane.png';
-// import stars from 'assets/canvas/stars.png';
-// import clouds from 'assets/canvas/clouds.png';
+import { HtmlTooltip } from 'components/Tooltip';
 
-interface SwitchProps {
+interface SwitchStyledProps {
   status?: boolean;
 }
 
-const SwitchWrapper = styled.div<SwitchProps>`
+type SwitchProps = {
+  value: boolean,
+  changeFunction: Function,
+  tooltip?: string | React.ReactNode
+};
+
+const SwitchWrapper = styled.div<SwitchStyledProps>`
   position: relative;
   width: 80px;
   height: 28px;
@@ -25,7 +27,7 @@ const SwitchWrapper = styled.div<SwitchProps>`
   /* overflow: hidden; */
 `;
 
-const SwitchScroll = styled.div<SwitchProps>`
+const SwitchScroll = styled.div<SwitchStyledProps>`
   position: relative;
   left: ${props => (props.status ? 'calc(100% - 40px);' : '0%;')};
   width: 40px;
@@ -40,13 +42,6 @@ const SwitchScroll = styled.div<SwitchProps>`
   &:hover {
     box-shadow: 0px 0px 10px grey;
   }
-`;
-
-const ContentText = styled.h4`
-  position: absolute;
-  z-index: 1;
-  left: 42%;
-  font-size: 20px;
 `;
 
 interface ImageProps {
@@ -67,38 +62,15 @@ const TransImage = styled.img<ImageProps>`
   z-index: 0;
 `;
 
-export default function Switch({ value, changeFunction }) {
+export default function Switch({ value, changeFunction, tooltip } : SwitchProps) {
   const scrollClicked = () => {
     changeFunction(!value);
   };
   return (
-    <SwitchWrapper status={value} onClick={scrollClicked}>
-      <SwitchScroll onClick={scrollClicked} status={value} />
-      {/* <ContentText>{status ? 'VI' : 'EN'}</ContentText> */}
-      {/* <TransImage
-        src={stars}
-        width={'80px'}
-        height={'80px'}
-        left={'3px'}
-        top={'-20px'}
-        scale={status ? 'scale(1.5)' : 'scale(0)'}
-      />
-      <TransImage
-        src={clouds}
-        width={'140px'}
-        height={'70px'}
-        left={status ? '0px' : '0px'}
-        top={status ? '140px' : '5px'}
-        scale={'scale(1)'}
-      />
-      <TransImage
-        src={plane}
-        width={'100px'}
-        height={'30px'}
-        left={status ? '-100px' : '70px'}
-        top={status ? '-10px' : '20px'}
-        scale={'scale(1)'}
-      /> */}
-    </SwitchWrapper>
+    <HtmlTooltip title={tooltip} disableInteractive>
+      <SwitchWrapper status={value} onClick={scrollClicked}>
+        <SwitchScroll onClick={scrollClicked} status={value} />
+      </SwitchWrapper>
+    </HtmlTooltip>
   );
 }

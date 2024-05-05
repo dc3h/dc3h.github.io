@@ -30,7 +30,10 @@ export const ContentLayout = styled.div`
     height: calc(100% - ${StyleConstants.HEADER_HEIGHT});
     width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    box-sizing: border-box;
+    padding: 30px 0px;
+    border: 1px solid grey;
+    border-radius: 30px;
 `

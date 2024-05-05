@@ -2,6 +2,9 @@ import { styled } from 'styled-components';
 import { StyleConstants } from 'styles/style-constant';
 import Switch from 'components/Switch';
 import { LoginButton } from 'components/Login';
+import { Fragment } from 'react';
+import Typography from '@mui/material/Typography';
+import { toast } from 'react-toastify';
 
 
 const HeaderWrapper = styled.div`
@@ -32,12 +35,34 @@ const Content = styled.h3`
 
 
 export function Header({ isSwitch, switchValue, switchChange }) {
+  const handleButtonClick = () => {
+    toast.warn('This feature is on developing', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+    })
+  }
   return (
     <HeaderWrapper>
       <LogoContent>J-Talkative.</LogoContent>
-      <Content>IELTS Talk</Content>
-      <Content>Interview Talk</Content>
-      {isSwitch !== undefined ? <Switch value={switchValue} changeFunction={switchChange} /> : <></>}
+      <Content onClick={handleButtonClick}>IELTS Talk</Content>
+      <Content onClick={handleButtonClick}>Interview Talk</Content>
+      {isSwitch !== undefined ? (
+        <Switch
+          value={switchValue}
+          changeFunction={switchChange}
+          tooltip={
+            <Fragment>
+              <Typography color="inherit">Hold to Speak Switch</Typography>
+              {"Turn on this button to activate hold button to speak instead of click to speak"}
+            </Fragment>
+          }
+        />) : <></>}
       <LoginButton />
     </HeaderWrapper>
   );

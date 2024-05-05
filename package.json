@@ -2,6 +2,7 @@
   "name": "javis-site",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dc3h.github.io",
   "dependencies": {
     "@coreui/coreui": "5.0.0",
     "@coreui/react": "5.0.0",

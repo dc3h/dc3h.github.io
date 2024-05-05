@@ -5,9 +5,13 @@ export interface SettingSlice {
   sessionId: string;
   userId: string;
   jobDescription: string;
+  voice: string;
+  agentType: string;
   setLanguage: (language: string) => void;
   setJobDescription: (jobDescription: string) => void;
   setSessionId: (sessionId: string) => void;
+  setVoice: (voice: string) => void;
+  setAgentType: (agentType: string) => void;
   setUserId: (userId: string) => void;
 }
 
@@ -18,7 +22,9 @@ export const createSettingSlice: StateCreator<
   SettingSlice
 > = set => ({
   language: 'EN',
-  jobDescription: "",
+  agentType: '',
+  voice: '',
+  jobDescription: '',
   sessionId: '',
   userId: '',
   setLanguage: (language: string) => {
@@ -26,6 +32,22 @@ export const createSettingSlice: StateCreator<
       state.language = language;
       return {
         language: language,
+      };
+    });
+  },
+  setAgentType: (agentType: string) => {
+    set(state => {
+      state.agentType = agentType;
+      return {
+        agentType: agentType,
+      };
+    });
+  },
+  setVoice: (voice: string) => {
+    set(state => {
+      state.voice = voice;
+      return {
+        voice: voice,
       };
     });
   },
